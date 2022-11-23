@@ -1,4 +1,5 @@
 import json
+import sys
 from born_prime import *
 import requests
 import hashlib
@@ -41,10 +42,13 @@ m=exgcdinv(y,k)
 
 
 #登陆界面
-if m**e
-params={'vn':str(vn),'m':str(m)}
-address='https://mockapi.eolink.com/6QVS7t1d18916567af4d46ffb579dc4e035981316fe67b6/mylogin'
-r=requests.post(address,json=params)
+if vn!=quick_algorithm(m,e,n):
+    print('验证失败')
+    sys.exit(0)
+else:
+    params={'vn':str(vn),'m':str(m)}
+    address='https://mockapi.eolink.com/6QVS7t1d18916567af4d46ffb579dc4e035981316fe67b6/mylogin'
+    r=requests.post(address,json=params)
 
-r=json.loads(r.text)
-print(r)
+    r=json.loads(r.text)
+    print(r)
