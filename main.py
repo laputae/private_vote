@@ -1,5 +1,5 @@
 import json
-import tkinter as tk
+import tkinter
 import sys
 from born_prime import *
 import requests
@@ -8,11 +8,12 @@ from fast_exp import quick_algorithm
 from extend_gcd import *
 from mypow import *
 
-mywin=tk.Tk()
-mywin.title('隐私保护的投票器')
-mywin.geometry('800x600')
+window=tkinter.Tk()
+window.title('隐私保护的投票器')
+window.geometry('800x600')
+tkinter.Label(window, text="用户名：").grid(row=0)
+e1=tkinter.Entry(window)
 
-mywin.mainloop()
 userkey={}
 #注册界面
 def register():
@@ -54,23 +55,26 @@ def getregkey():
 
 
 #登陆界面
-def login
-#注意发送的投票选项要用paillier加密
-"""
-if vn!=quick_algorithm(m,e,n):
-    print('验证失败')
-    sys.exit(0)
-else:
+def login():
+    #注意发送的投票选项要用paillier加密
+    """
+    if vn!=quick_algorithm(m,e,n):
+        print('验证失败')
+        sys.exit(0)
+    else:
+        params={'vn':str(vn),'m':str(m)}
+        address='https://mockapi.eolink.com/6QVS7t1d18916567af4d46ffb579dc4e035981316fe67b6/mylogin'
+        r=requests.post(address,json=params)
+
+        r=json.loads(r.text)
+        print(r)
+    """
     params={'vn':str(vn),'m':str(m)}
     address='https://mockapi.eolink.com/6QVS7t1d18916567af4d46ffb579dc4e035981316fe67b6/mylogin'
     r=requests.post(address,json=params)
 
     r=json.loads(r.text)
     print(r)
-"""
-params={'vn':str(vn),'m':str(m)}
-address='https://mockapi.eolink.com/6QVS7t1d18916567af4d46ffb579dc4e035981316fe67b6/mylogin'
-r=requests.post(address,json=params)
 
-r=json.loads(r.text)
-print(r)
+button=tkinter.Button(window,text='注册',width=20,height=5,command=register()).grid(row=3, column=0, sticky="w", padx=10, pady=5)
+window.mainloop()
