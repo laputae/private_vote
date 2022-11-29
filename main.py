@@ -1,6 +1,9 @@
 import tkinter
+
+import glovar
 import login,getregkey,register,getname
-from tkinter import messagebox
+from tkinter import messagebox, INSERT
+
 
 def main():
     username=getname.user()
@@ -17,6 +20,7 @@ name= tkinter.StringVar()
 e1=tkinter.Entry(window,textvariable=name)
 e1.grid(row=0, column=1, padx=10, pady=5)
 
+
 button1=tkinter.Button(window,text='注册',width=10,height=5,command=lambda :register.register(name.get()))
 button1.grid(row=1,column=1)
 button1.pack
@@ -24,6 +28,14 @@ button1.pack
 button2=tkinter.Button(window,text='获得注册码',width=10,height=5,command=lambda :getregkey.getregkey())
 button2.grid(row=2,column=1)
 button2.pack
+labe2=tkinter.Label(window,text='注册码y：')
+labe2.grid(row=3)
+T1= tkinter.Text(window, width=10,height=5,undo=True,autoseparators=False)
+T1.grid(row=3,column=1)
+T1.pack
+T1.insert(INSERT,glovar.getvalue('y'))
 
-button3
+button3=tkinter.Button(window,text='登录',width=10,height=5,command=lambda:login.login())
+button3.grid(row=4,column=1)
+button3.pack
 window.mainloop()

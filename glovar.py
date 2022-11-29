@@ -6,6 +6,7 @@ glovalue['k'] = 0
 glovalue['username']= ''
 glovalue['m']=0
 glovalue['x']=''
+glovalue['y']=0
 
 def setvalue(value, para):
     global glovalue
