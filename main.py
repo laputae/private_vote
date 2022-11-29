@@ -1,5 +1,6 @@
 import tkinter
 import login,getregkey,register,getname
+from tkinter import messagebox
 
 def main():
     username=getname.user()
@@ -16,5 +17,13 @@ name= tkinter.StringVar()
 e1=tkinter.Entry(window,textvariable=name)
 e1.grid(row=0, column=1, padx=10, pady=5)
 
-button=tkinter.Button(window,text='注册',width=10,height=5,command=register(name.get())).grid(row=3, column=0, sticky="w", padx=10, pady=5)
+button1=tkinter.Button(window,text='注册',width=10,height=5,command=lambda :register.register(name.get()))
+button1.grid(row=1,column=1)
+button1.pack
+
+button2=tkinter.Button(window,text='获得注册码',width=10,height=5,command=lambda :getregkey.getregkey())
+button2.grid(row=2,column=1)
+button2.pack
+
+button3
 window.mainloop()
