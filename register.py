@@ -6,7 +6,7 @@ import glovar
 
 #注册界面
 def register(username):
-
+    print('hahhahhahahhaha')
     print(username)
     md5 = hashlib.md5()
     md5.update(username.encode('utf-8'))
@@ -25,7 +25,6 @@ def register(username):
     glovar.setvalue('n',n)
     k=1234567890
     glovar.setvalue('k',k)
-
     x=(vn*quick_algorithm(k,e,n))%n
     x=str(x)
     glovar.setvalue('x', x)

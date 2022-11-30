@@ -1,9 +1,12 @@
 import tkinter
-
 import glovar
 import login,getregkey,register,getname
-from tkinter import messagebox, INSERT
+from tkinter import messagebox
 
+def regkeybutton():
+    getregkey.getregkey()
+    # 使用消息对话框控件，showinfo()表示提示
+    messagebox.showinfo(title='注册码y：', message=glovar.getvalue('y'))
 
 def main():
     username=getname.user()
@@ -25,17 +28,18 @@ button1=tkinter.Button(window,text='注册',width=10,height=5,command=lambda :re
 button1.grid(row=1,column=1)
 button1.pack
 
-button2=tkinter.Button(window,text='获得注册码',width=10,height=5,command=lambda :getregkey.getregkey())
+button2=tkinter.Button(window,text='获得注册码',width=10,height=5,command=regkeybutton)
 button2.grid(row=2,column=1)
 button2.pack
-labe2=tkinter.Label(window,text='注册码y：')
-labe2.grid(row=3)
-T1= tkinter.Text(window, width=10,height=5,undo=True,autoseparators=False)
-T1.grid(row=3,column=1)
-T1.pack
-T1.insert(INSERT,glovar.getvalue('y'))
 
-button3=tkinter.Button(window,text='登录',width=10,height=5,command=lambda:login.login())
+button3=tkinter.Button(window,text='登录',width=10,height=5,command=login.login)
 button3.grid(row=4,column=1)
 button3.pack
+
+site = [('美团外卖',1),
+        ('饿了么外卖',2),
+        ('美团闪购',3),
+        ('艾奇外卖',4)]
+v=tkinter.IntVar
+
 window.mainloop()
