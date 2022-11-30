@@ -36,10 +36,10 @@ button3=tkinter.Button(window,text='登录',width=10,height=5,command=login.logi
 button3.grid(row=4,column=1)
 button3.pack
 
-site = [('美团外卖',1),
-        ('饿了么外卖',2),
-        ('美团闪购',3),
-        ('艾奇外卖',4)]
-v=tkinter.IntVar
+v=tkinter.IntVar()
+for num in range(1,6):
+    name=glovar.getchoice(num)
+    radio_button = tkinter.Radiobutton(window,text = name, variable = v,value =num)
+    radio_button.pack(anchor ='w')
 
 window.mainloop()

@@ -23,5 +23,7 @@ def login():
     r=requests.post(address,json=params)
 
     r=json.loads(r.text)
+    i=0
     for key in r['result']:
-        glovar.setchoice(key,r['result'][key])
+        i=i+1
+        glovar.setchoice(i,r['result'][key])

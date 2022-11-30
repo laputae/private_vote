@@ -7,13 +7,9 @@ glovalue['username']= ''
 glovalue['m']=0
 glovalue['x']=''
 glovalue['y']=0
-
-site = [('美团外卖',1),
-        ('饿了么外卖',2),
-        ('美团闪购',3),
-        ('艾奇外卖',4)]
-
 choice={}
+
+
 def setvalue(value, para):
     global glovalue
     glovalue[value]=para
@@ -29,4 +25,9 @@ def is_success(statuscode):
         print('重复注册')
 
 def setchoice(cho,value):
+    global choice
     choice[cho]=value
+
+def getchoice(cho):
+    global choice
+    return choice[cho]
