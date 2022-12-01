@@ -7,7 +7,13 @@ def regkeybutton():
     getregkey.getregkey()
     # 使用消息对话框控件，showinfo()表示提示
     messagebox.showinfo(title='注册码y：', message=glovar.getvalue('y'))
-
+def option():
+    login.login
+    v=tkinter.IntVar()
+    for num in range(1,6):
+        name=glovar.getchoice(num)
+        radio_button = tkinter.Radiobutton(window,text = name, variable = v,value =num)
+        radio_button.pack(anchor ='w')
 def main():
     username=getname.user()
     vn,x=register.register(username)
@@ -36,10 +42,5 @@ button3=tkinter.Button(window,text='登录',width=10,height=5,command=login.logi
 button3.grid(row=4,column=1)
 button3.pack
 
-v=tkinter.IntVar()
-for num in range(1,6):
-    name=glovar.getchoice(num)
-    radio_button = tkinter.Radiobutton(window,text = name, variable = v,value =num)
-    radio_button.pack(anchor ='w')
 
 window.mainloop()
