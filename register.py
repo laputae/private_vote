@@ -6,7 +6,7 @@ import glovar
 
 #注册界面
 def register(username):
-    print('hahhahhahahhaha')
+
     print(username)
     md5 = hashlib.md5()
     md5.update(username.encode('utf-8'))

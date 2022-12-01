@@ -1,6 +1,7 @@
 import json
 import requests
 import glovar
+
 #登陆界面
 def login():
     vn=glovar.getvalue('vn')
@@ -23,7 +24,12 @@ def login():
     r=requests.post(address,json=params)
 
     r=json.loads(r.text)
+    print(r)
     i=0
     for key in r['result']:
         i=i+1
         glovar.setchoice(i,r['result'][key])
+
+
+    for i in range(1,6):
+        print(glovar.getchoice(i))

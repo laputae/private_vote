@@ -2,45 +2,61 @@ import tkinter
 import glovar
 import login,getregkey,register,getname
 from tkinter import messagebox
-
+import choice
 def regkeybutton():
     getregkey.getregkey()
     # 使用消息对话框控件，showinfo()表示提示
     messagebox.showinfo(title='注册码y：', message=glovar.getvalue('y'))
-def option():
-    login.login
-    v=tkinter.IntVar()
-    for num in range(1,6):
-        name=glovar.getchoice(num)
-        radio_button = tkinter.Radiobutton(window,text = name, variable = v,value =num)
-        radio_button.pack(anchor ='w')
-def main():
-    username=getname.user()
-    vn,x=register.register(username)
-    m=getregkey.getregkey(x)
-    login.login(vn,m)
+
 
 window=tkinter.Tk()
 window.title('隐私保护的投票器')
 window.geometry('800x600')
 labe1=tkinter.Label(window, text="用户名：")
-labe1.grid(row=0)
+labe1.grid(row=0,column=10)
 name= tkinter.StringVar()
 e1=tkinter.Entry(window,textvariable=name)
-e1.grid(row=0, column=1, padx=10, pady=5)
+e1.grid(row=0, column=50, padx=10, pady=5)
 
 
-button1=tkinter.Button(window,text='注册',width=10,height=5,command=lambda :register.register(name.get()))
-button1.grid(row=1,column=1)
+button1=tkinter.Button(window,text='注册',width=5,height=3,command=lambda :register.register(name.get()))
+button1.grid(row=1,column=50)
 button1.pack
 
-button2=tkinter.Button(window,text='获得注册码',width=10,height=5,command=regkeybutton)
-button2.grid(row=2,column=1)
+button2=tkinter.Button(window,text='获得注册码',width=10,height=3,command=regkeybutton)
+button2.grid(row=2,column=50)
 button2.pack
 
-button3=tkinter.Button(window,text='登录',width=10,height=5,command=login.login)
-button3.grid(row=4,column=1)
+button3=tkinter.Button(window,text='登录',width=5,height=3,command=login.login)
+button3.grid(row=4,column=50)
 button3.pack
 
+def createbox():
+    var1 = tkinter.StringVar()
+    l = tkinter.Label(window, bg='#B0B0B0', font=('微软雅黑', 15), width=20, textvariable=var1)
+    l.grid(row=5)
+    # 创建一个按钮的点击事件
+    def click_button():
+        # 使用 curselection来选中文本
+        try:
+            val = lb.get(lb.curselection())
+        # 设置label值
+            var1.set(val)
+        except Exception as e:
+            e = '发现一个错误'
+            messagebox.showwarning(e,'没有选择任何条目')
+    # 创建一个按钮并放置，点击按钮调用print_selection函数
+    b1 = tkinter.Button(window, text='获取当前选项', command=click_button)
+    b1.grid(row=6)
+# 创建Listbox并为其添加内容
+    var2 = tkinter.StringVar()
+    var2.set((glovar.getchoice(1),glovar.getchoice(2), glovar.getchoice(3),glovar.getchoice(4),glovar.getchoice(5)))
+    # 创建Listbox，通过 listvariable来传递变量
+    lb = tkinter.Listbox(window, listvariable=var2)
+    lb.grid(row=7)
+
+butt4=tkinter.Button(window,text='显示选项',command=createbox)
+butt4.grid(row=8)
+#主窗显示
 
 window.mainloop()

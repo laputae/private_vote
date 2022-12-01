@@ -1,3 +1,4 @@
+
 glovalue = {}
 glovalue['vn'] = 0
 glovalue['e'] = 0
@@ -8,6 +9,7 @@ glovalue['m']=0
 glovalue['x']=''
 glovalue['y']=0
 choice={}
+
 
 
 def setvalue(value, para):
