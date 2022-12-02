@@ -14,7 +14,8 @@ def register(username):
     params={'ID':usrmd5}
     address='https://mockapi.eolink.com/6QVS7t1d18916567af4d46ffb579dc4e035981316fe67b6/myregister'
     r=requests.post(address,json=params)
-    print(r.status_code==200)
+    if r.status_code == 200:
+        print('发送成功')
     r=json.loads(r.text)
 
     vn=int(r['vn'])

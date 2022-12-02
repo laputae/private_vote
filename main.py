@@ -56,6 +56,10 @@ butt4=tkinter.Button(window,text='显示选项',width=10,height=2,command=create
 butt4.grid(row=8,column=50)
 butt4.pack
 
-butt5=tkinter.Button(window,text=)
+butt5=tkinter.Button(window,text='发送投票结果',width=10,height=2,command=sendchoice.sendchoice)
+butt5.grid(row=9,column=50)
+butt5.pack
+
+butt6=tkinter
 
 window.mainloop()
