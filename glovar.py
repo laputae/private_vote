@@ -10,11 +10,11 @@ glovalue['x']=''
 glovalue['y']=0
 choice={}
 sendchoice={}
-sendchoice['choice1']=0
-sendchoice['choice2']=0
-sendchoice['choice3']=0
-sendchoice['choice4']=0
-sendchoice['choice5']=0
+sendchoice['choice1']='0'
+sendchoice['choice2']='0'
+sendchoice['choice3']='0'
+sendchoice['choice4']='0'
+sendchoice['choice5']='0'
 
 def setvalue(value, para):
     global glovalue
@@ -40,7 +40,7 @@ def getchoice(cho):
 
 def choicesend(var):
     global sendchoice
-    sendchoice['var']=1
+    sendchoice['var']='1'
 
 def getsendchoice():
     #返回态加密后的投票选项

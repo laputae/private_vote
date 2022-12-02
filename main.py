@@ -1,8 +1,8 @@
 import tkinter
 import glovar
-import login,getregkey,register,getname
+import login,getregkey,register,lookvote,sendchoice
 from tkinter import messagebox
-import sendchoice
+
 def regkeybutton():
     getregkey.getregkey()
     # 使用消息对话框控件，showinfo()表示提示
@@ -60,6 +60,8 @@ butt5=tkinter.Button(window,text='发送投票结果',width=10,height=2,command=
 butt5.grid(row=9,column=50)
 butt5.pack
 
-butt6=tkinter
+butt6=tkinter.Button(window,text='查看总投票结果',width=10,height=2,command=lookvote.lookvote)
+butt6.grid(row=10,column=50)
+butt5.pack
 
 window.mainloop()
