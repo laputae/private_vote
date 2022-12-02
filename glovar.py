@@ -38,6 +38,7 @@ def getchoice(cho):
     global choice
     return choice[cho]
 
+#把选中的投票置为’1‘
 def choicesend(var):
     global sendchoice
     sendchoice['var']='1'
@@ -51,5 +52,8 @@ def getsendchoice():
 
     for key in sendchoice:
         sendchoice[key]=pai.encipher(sendchoice[key])
-
+    print(sendchoice)
     return sendchoice
+
+if __name__ == "__main__":
+    getsendchoice()
