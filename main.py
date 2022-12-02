@@ -2,7 +2,7 @@ import tkinter
 import glovar
 import login,getregkey,register,getname
 from tkinter import messagebox
-import choice
+import sendchoice
 def regkeybutton():
     getregkey.getregkey()
     # 使用消息对话框控件，showinfo()表示提示
@@ -41,6 +41,7 @@ def createbox():
             val = lb.get(lb.curselection())
             var1.set(val)
             print(val)
+            glovar.choicesend(val)
         except Exception as e:
             e = '发现一个错误'
             messagebox.showwarning(e,'没有选择任何条目')
@@ -54,5 +55,7 @@ def createbox():
 butt4=tkinter.Button(window,text='显示选项',width=10,height=2,command=createbox)
 butt4.grid(row=8,column=50)
 butt4.pack
+
+butt5=tkinter.Button(window,text=)
 
 window.mainloop()

@@ -1,4 +1,4 @@
-
+import paillier
 glovalue = {}
 glovalue['vn'] = 0
 glovalue['e'] = 0
@@ -41,3 +41,15 @@ def getchoice(cho):
 def choicesend(var):
     global sendchoice
     sendchoice['var']=1
+
+def getsendchoice():
+    #返回态加密后的投票选项
+    global sendchoice
+    pai = paillier.Paillier()
+    pai.__key_gen__()
+    pubKey = pai.pubKey
+
+    for key in sendchoice:
+        sendchoice[key]=pai.encipher(sendchoice[key])
+
+    return sendchoice
