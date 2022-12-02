@@ -19,44 +19,39 @@ e1=tkinter.Entry(window,textvariable=name)
 e1.grid(row=0, column=50, padx=10, pady=5)
 
 
-button1=tkinter.Button(window,text='注册',width=5,height=3,command=lambda :register.register(name.get()))
+button1=tkinter.Button(window,text='注册',width=10,height=2,command=lambda :register.register(name.get()))
 button1.grid(row=1,column=50)
 button1.pack
 
-button2=tkinter.Button(window,text='获得注册码',width=10,height=3,command=regkeybutton)
+button2=tkinter.Button(window,text='获得注册码',width=10,height=2,command=regkeybutton)
 button2.grid(row=2,column=50)
 button2.pack
 
-button3=tkinter.Button(window,text='登录',width=5,height=3,command=login.login)
+button3=tkinter.Button(window,text='登录',width=10,height=3,command=login.login)
 button3.grid(row=4,column=50)
 button3.pack
 
 def createbox():
     var1 = tkinter.StringVar()
     l = tkinter.Label(window, bg='#B0B0B0', font=('微软雅黑', 15), width=20, textvariable=var1)
-    l.grid(row=5)
-    # 创建一个按钮的点击事件
+    l.grid(row=5,column=50)
     def click_button():
         # 使用 curselection来选中文本
         try:
             val = lb.get(lb.curselection())
-        # 设置label值
             var1.set(val)
         except Exception as e:
             e = '发现一个错误'
             messagebox.showwarning(e,'没有选择任何条目')
-    # 创建一个按钮并放置，点击按钮调用print_selection函数
     b1 = tkinter.Button(window, text='获取当前选项', command=click_button)
-    b1.grid(row=6)
-# 创建Listbox并为其添加内容
+    b1.grid(row=6,column=50)
     var2 = tkinter.StringVar()
     var2.set((glovar.getchoice(1),glovar.getchoice(2), glovar.getchoice(3),glovar.getchoice(4),glovar.getchoice(5)))
-    # 创建Listbox，通过 listvariable来传递变量
     lb = tkinter.Listbox(window, listvariable=var2)
-    lb.grid(row=7)
+    lb.grid(row=7,column=50)
 
-butt4=tkinter.Button(window,text='显示选项',command=createbox)
-butt4.grid(row=8)
-#主窗显示
+butt4=tkinter.Button(window,text='显示选项',width=10,height=2,command=createbox)
+butt4.grid(row=8,column=50)
+butt4.pack
 
 window.mainloop()
