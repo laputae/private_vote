@@ -8,13 +8,12 @@ glovalue['username']= ''
 glovalue['m']=0
 glovalue['x']=''
 glovalue['y']=0
-choice={}
-sendchoice={}
-sendchoice['choice1']='0'
-sendchoice['choice2']='0'
-sendchoice['choice3']='0'
-sendchoice['choice4']='0'
-sendchoice['choice5']='0'
+choice={}       #初始的选项
+sendchoice={}   #选择之后的选项
+for i in range(1, 6):
+    key= 'choice' + str(i)
+    print(key)
+    sendchoice[key] = '0'
 
 def setvalue(value, para):
     global glovalue
@@ -41,18 +40,18 @@ def getchoice(cho):
 #把选中的投票置为’1‘
 def choicesend(var):
     global sendchoice
-    sendchoice['var']='1'
+    for key in sendchoice:
+        if sendchoice[key]==var:
+            sendchoice[key]='1'
 
 def getsendchoice():
-    #返回态加密后的投票选项
+    #返回同态加密后的投票选项
     global sendchoice
     pai = paillier.Paillier()
     pai.__key_gen__()
-    pubKey = pai.pubKey
 
     for key in sendchoice:
         sendchoice[key]=pai.encipher(sendchoice[key])
-    print(sendchoice)
     return sendchoice
 
 if __name__ == "__main__":

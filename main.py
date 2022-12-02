@@ -36,11 +36,9 @@ def createbox():
     l = tkinter.Label(window, bg='#B0B0B0', font=('微软雅黑', 15), width=20, textvariable=var1)
     l.grid(row=5,column=50)
     def click_button():
-        # 使用 curselection来选中文本
         try:
             val = lb.get(lb.curselection())
             var1.set(val)
-            print(val)
             glovar.choicesend(val)
         except Exception as e:
             e = '发现一个错误'
