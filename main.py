@@ -40,6 +40,7 @@ def createbox():
         try:
             val = lb.get(lb.curselection())
             var1.set(val)
+            print(val)
         except Exception as e:
             e = '发现一个错误'
             messagebox.showwarning(e,'没有选择任何条目')

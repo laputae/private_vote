@@ -9,8 +9,12 @@ glovalue['m']=0
 glovalue['x']=''
 glovalue['y']=0
 choice={}
-
-
+sendchoice={}
+sendchoice['choice1']=0
+sendchoice['choice2']=0
+sendchoice['choice3']=0
+sendchoice['choice4']=0
+sendchoice['choice5']=0
 
 def setvalue(value, para):
     global glovalue
@@ -33,3 +37,7 @@ def setchoice(cho,value):
 def getchoice(cho):
     global choice
     return choice[cho]
+
+def choicesend(var):
+    global sendchoice
+    sendchoice['var']=1
