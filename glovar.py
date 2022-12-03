@@ -74,6 +74,5 @@ def getretchoice():
     global sendchoice
     return sendchoice
 
-
 if __name__ == "__main__":
     getsendchoice()
