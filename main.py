@@ -35,7 +35,7 @@ button3.pack
 def createbox():
     var1 = tkinter.StringVar()
     l = tkinter.Label(window, bg='#B0B0B0', font=('微软雅黑', 15), width=20, textvariable=var1)
-    l.grid(row=5,column=400)
+    l.grid(row=5,column=300)
     def click_button():
         try:
             val = lb.get(lb.curselection())
