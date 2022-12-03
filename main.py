@@ -7,10 +7,11 @@ def regkeybutton():
     getregkey.getregkey()
     # 使用消息对话框控件，showinfo()表示提示
     messagebox.showinfo(title='注册码y：', message=glovar.getvalue('y'))
-
+#查看投票结果
 def look():
     lookvote.lookvote()
     messagebox.showinfo(title='查看投票结果',message=glovar.getretchoice())
+
 window=tkinter.Tk()
 window.title('隐私保护的投票器')
 window.geometry('800x600')
@@ -34,6 +35,7 @@ button3=tkinter.Button(window,text='登录',width=10,height=2,command=login.logi
 button3.grid(row=3,column=300)
 button3.pack
 
+#弹出投票选项
 def createbox():
     var1 = tkinter.StringVar()
     l = tkinter.Label(window, bg='#B0B0B0', font=('微软雅黑', 15), width=20, textvariable=var1)
