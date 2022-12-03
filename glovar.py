@@ -64,7 +64,9 @@ def getsendchoice():
 def setretchoice(var):
     global sendchoice
     sendchoice=var
+    print(sendchoice)
     for key in sendchoice:
+        print(sendchoice[key])
         sendchoice[key]=str(pai.decipher(sendchoice[key]))
 
 #把总投票结果显示在弹窗里

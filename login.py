@@ -32,7 +32,7 @@ def login():
     for key in r['result']:
         i=i+1
         glovar.setchoice(i,r['result'][key])
-
-
+    """
     for i in range(1,6):
         print(glovar.getchoice(i))
+    """
