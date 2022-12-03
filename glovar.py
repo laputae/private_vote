@@ -10,10 +10,15 @@ glovalue['x']=''
 glovalue['y']=0
 choice={}       #初始的选项
 sendchoice={}   #选择之后的选项
-pubkey=0
 def setpubkey(var):
     global pubkey
     pubkey=var
+pubkey=0
+#保存公钥
+pai = paillier.Paillier()
+pai.__key_gen__()
+setpubkey(pai.pubKey)
+
 for i in range(1, 6):
     key= 'choice' + str(i)
     sendchoice[key] = '0'
@@ -50,18 +55,19 @@ def choicesend(var):
 def getsendchoice():
     #返回同态加密后的投票选项
     global sendchoice
-    pai = paillier.Paillier()
-    pai.__key_gen__()
-    setpubkey(pai.pubKey)
     tempchoice={}
     for key in sendchoice:
         tempchoice[key]=str(pai.encipher(sendchoice[key]))
     return tempchoice
 
+#设置得到的总投票结果并解密
 def setretchoice(var):
     global sendchoice
     sendchoice=var
+    for key in sendchoice:
+        sendchoice[key]=str(pai.decipher(sendchoice[key]))
 
+#把总投票结果显示在弹窗里
 def getretchoice():
     global sendchoice
     return sendchoice
