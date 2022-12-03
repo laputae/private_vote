@@ -16,7 +16,6 @@ def setpubkey(var):
     pubkey=var
 for i in range(1, 6):
     key= 'choice' + str(i)
-    print(key)
     sendchoice[key] = '0'
 
 def setvalue(value, para):
@@ -57,9 +56,16 @@ def getsendchoice():
     tempchoice={}
     for key in sendchoice:
         tempchoice[key]=str(pai.encipher(sendchoice[key]))
-
-    print(tempchoice)
     return tempchoice
+
+def setretchoice(var):
+    global sendchoice
+    sendchoice=var
+
+def getretchoice():
+    global sendchoice
+    return sendchoice
+
 
 if __name__ == "__main__":
     getsendchoice()

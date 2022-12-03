@@ -8,7 +8,9 @@ def regkeybutton():
     # 使用消息对话框控件，showinfo()表示提示
     messagebox.showinfo(title='注册码y：', message=glovar.getvalue('y'))
 
-
+def look():
+    lookvote.lookvote()
+    messagebox.showinfo(title='查看投票结果',message=glovar.getretchoice())
 window=tkinter.Tk()
 window.title('隐私保护的投票器')
 window.geometry('800x600')
@@ -59,7 +61,7 @@ butt5=tkinter.Button(window,text='发送投票结果',width=10,height=2,command=
 butt5.grid(row=9,column=300)
 butt5.pack
 
-butt6=tkinter.Button(window,text='查看总投票结果',width=12,height=2,command=lookvote.lookvote)
+butt6=tkinter.Button(window,text='查看总投票结果',width=12,height=2,command=look)
 butt6.grid(row=10,column=300)
 butt5.pack
 
