@@ -46,6 +46,8 @@ def choicesend(var):
     for key in sendchoice:
         if sendchoice[key]==var:
             sendchoice[key]='1'
+        else:
+            sendchoice[key]='0'
 
 def getsendchoice():
     #返回同态加密后的投票选项
