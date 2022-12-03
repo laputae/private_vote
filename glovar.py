@@ -62,9 +62,12 @@ def setretchoice(var):
     global sendchoice
     sendchoice=var
     print(sendchoice)
+    i=0
     for key in sendchoice:
-        print(sendchoice[key])
-        sendchoice[key]=str(pai.decipher(sendchoice[key]))
+        i=i+1
+        if i<=5:
+            print(sendchoice[key])
+            sendchoice[key]=str(pai.decipher(sendchoice[key]))
 
 #把总投票结果显示在弹窗里
 def getretchoice():
