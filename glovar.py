@@ -10,10 +10,10 @@ glovalue['x']=''
 glovalue['y']=0
 choice={}       #初始的选项
 sendchoice={}   #选择之后的选项
+pubkey=0
 def setpubkey(var):
     global pubkey
     pubkey=var
-pubkey=0
 #保存公钥
 pai = paillier.Paillier()
 pai.__key_gen__()
@@ -31,11 +31,6 @@ def getvalue(value):
     global glovalue
     return glovalue[value]
 
-def is_success(statuscode):
-    if statuscode==200:
-        print('注册成功')
-    elif statuscode==505:
-        print('重复注册')
 
 def setchoice(cho,value):
     global choice
