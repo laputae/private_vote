@@ -15,7 +15,9 @@ def register(username):
     address='https://mockapi.eolink.com/6QVS7t1d18916567af4d46ffb579dc4e035981316fe67b6/myregister'
     r=requests.post(address,json=params)
     if r.status_code == 200:
-        print('发送成功')
+        print('注册成功')
+    elif r.status_code==505:
+        print('重复注册')
     r=json.loads(r.text)
 
     vn=int(r['vn'])

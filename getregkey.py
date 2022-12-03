@@ -10,7 +10,7 @@ def getregkey():
     address='https://mockapi.eolink.com/6QVS7t1d18916567af4d46ffb579dc4e035981316fe67b6/getm'
     r=requests.post(address,json=params)
     if r.status_code==200:
-        print('发送成功')
+        print('签名成功，获得注册码成功')
     elif r.status_code==506:
         print('签名失败')
     r=json.loads(r.text)
