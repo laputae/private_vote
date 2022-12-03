@@ -62,6 +62,7 @@ def setretchoice(var):
     global sendchoice
     sendchoice=var
     print(sendchoice)
+    #只对选项数目解密，时间戳不用解密
     i=0
     for key in sendchoice:
         i=i+1
