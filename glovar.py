@@ -49,10 +49,13 @@ def getsendchoice():
     global sendchoice
     pai = paillier.Paillier()
     pai.__key_gen__()
-
+    pubkey=pai.pubKey
+    tempchoice={}
     for key in sendchoice:
-        sendchoice[key]=pai.encipher(sendchoice[key])
-    return sendchoice
+        tempchoice[key]=str(pai.encipher(sendchoice[key]))
+
+    print(tempchoice)
+    return tempchoice
 
 if __name__ == "__main__":
     getsendchoice()
